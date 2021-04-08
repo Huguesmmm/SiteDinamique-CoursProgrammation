@@ -21,7 +21,7 @@
         <?php
         // Connexion à la base de données
         try {
-            $bdd = new PDO('mysql:host=localhost;dbname=programmation_developpement_v0_0_1;charset=utf8;', 'root', 'mysql');
+            $bdd = new PDO('mysql:host=localhost;dbname=cours_programmation_v0_1_0;charset=utf8;', 'root', 'mysql');
         } catch (Exception $e) {
             die('Erreur : ' . $e->getMessage());
         }
@@ -33,12 +33,12 @@
         } catch (Exception $ex) {
             die('Erreur : ' . $e->getMessage());
         }
-        
+
         // Affichage du cours à modifier
         $donnees = $req->fetch();
         $req->closeCursor();
         ?>
-        
+
         <form action="cours_mis_a_jour.php" method="post">
             <h2>Modifier un cours V0.0.1</h2>
             <p>
@@ -49,29 +49,33 @@
                 <label for="difficulte">Difficulté</label> : 
                 <select name="difficulte" id="difficulte">
                     <option value="facile"
-                            <?php
-                            echo ($donnees['difficulte'] == 'facile') ?
-                                'selected="selected"' : ''
-                            ?>
+                    <?php
+                    echo ($donnees['difficulte'] == 'facile') ?
+                            'selected="selected"' : ''
+                    ?>
                             >facile</option>
                     <option value="moyenne"
-                            <?php
-                            echo ($donnees['difficulte'] == 'moyenne') ?
-                                'selected="selected"' : ''
-                            ?>
+                    <?php
+                    echo ($donnees['difficulte'] == 'moyenne') ?
+                            'selected="selected"' : ''
+                    ?>
                             >moyenne</option>
                     <option value="difficile"
-                            <?php
-                            echo ($donnees['difficulte'] == 'difficile') ?
-                                'selected="selected"' : ''
-                            ?>
+                    <?php
+                    echo ($donnees['difficulte'] == 'difficile') ?
+                            'selected="selected"' : ''
+                    ?>
                             >difficile</option>
                 </select>
+                <label for="prive">Privé</label> : 
+                <input type="checkbox" name="prive" id="prive" 
+                       <?php echo ($donnees['prive'] == 1) ? 'checked="checked"' : '' ?> />
                 <input type="hidden" name="utilisateur_id" value="<?php echo $donnees['utilisateur_id'] ?>">
                 <input type="hidden" name="id" value="<?php echo $donnees['id']; ?>" />
                 <input class="button" type="submit" value="Modifier" />
+                <input class="button" type="button" value="Annuler" name="annuler" onclick="history.back()"/>
             </p>
-            // <?php var_dump($donnees); ?>
+            <?php // var_dump($donnees); ?>
         </form>
     </body>
 </html>
