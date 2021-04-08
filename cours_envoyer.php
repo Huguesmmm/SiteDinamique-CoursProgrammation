@@ -2,29 +2,33 @@
 // Connexion à la base de données
 try {
 
-    $bdd = new PDO('mysql:host=localhost;dbname=programmation_developpement_v0_0_1;charset=utf8', 'root', 'mysql',
+    $bdd = new PDO('mysql:host=localhost;dbname=cours_programmation_v0_1_0;charset=utf8', 'root', 'mysql',
             array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 } catch (Exception $e) {
 
     die('Erreur : ' . $e->getMessage());
 }
 
+// vérification checkbox
+$prive = (isset($_POST['prive'])) ? 1 : 0;
 $req = $bdd->prepare('INSERT INTO cours (nom, ' .
         'description, ' .
         'utilisateur_id, ' .
-        'difficulte)' .
-        ' VALUES(?,?,?,?)'
+        'difficulte,' .
+        'prive)' .
+        ' VALUES(?,?,?,?,?)'
 );
 $req->execute(array(
-        filter_input(INPUT_POST, 'nom'),
-        filter_input(INPUT_POST, 'description'),
-        filter_input(INPUT_POST, 'utilisateur_id'),
-        filter_input(INPUT_POST, 'difficulte'))
+    filter_input(INPUT_POST, 'nom'),
+    filter_input(INPUT_POST, 'description'),
+    filter_input(INPUT_POST, 'utilisateur_id'),
+    filter_input(INPUT_POST, 'difficulte'),
+    $prive)
 );
 
 // Redirection du visiteur vers la page d'acceuil
 // Mettre en commentaire pour déboguer
-// header('Location: index.php');
+header('Location: index.php');
 ?>
 <html>
     <body>
