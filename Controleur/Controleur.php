@@ -1,0 +1,88 @@
+<?php
+// TODO: remplir les fonctions manquantes
+require 'Modele/Modele.php';
+
+function cours($id, $erreur = '')
+{
+    $cours = getCours($id);
+    $langages_de_programmation = getProgrammationLanguages($id);
+    require 'Vue/vueCours.php';
+}
+
+function courses()
+{
+    $courses = getCourses();
+    require 'Vue/vueCourses.php';
+}
+
+// Charge la vue pour l'ajout
+function nouveau()
+{
+    require 'Vue/vueAjouter.php';
+}
+
+// Enregistre le nouveau cours et retourne l'accueil
+function ajouter($cours)
+{
+    setCours($cours);
+    header('Location: index.php');
+}
+
+// Affiche toutes les langages de programmation
+function langages_de_programmation()
+{
+    $langages_de_programmation = getProgrammationLanguages();
+    require 'Vue/vueLangagesDeProgrammation.php';
+}
+
+// Ajoute un langage de programmation
+function langage_de_programmation($cours_id)
+{
+    // vérifier si le cours existe
+    $cours = getCours($cours_id);
+    // Récupérer les données du formulaire
+    $langage_de_programmation = $_POST;
+    $validation_courriel = filter_var($langage_de_programmation['courriel'], FILTER_VALIDATE_EMAIL);
+    if ($validation_courriel) {
+        $validation_url = filter_var($langage_de_programmation['url'], FILTER_VALIDATE_URL);
+        if ($validation_url) {
+            // Ajouter le langage de programmation à l'aide du modèle
+            setProgrammationLanguages($langage_de_programmation);
+            // Recharger la page pour mettre à jour la liste des langage de programmation
+            header('Location: index.php?action=cours?id=' . $cours_id);
+        } else {
+            // Recharger la page avec une erreur près de l'url
+            header('Location: index.php?action=cours&id=' . $langage_de_programmation['cours_id'] . '&erreur=url');
+        }
+    } else {
+        // Recharger la page avec une erreur près du courriel
+        header('Location: index.php?action=cours&id=' . $langage_de_programmation['id'] . '&erreur=courriel');
+    }
+}
+
+// Mettre à jour une chose à faire
+function mettreAJour($id)
+{
+    // Vérifier si la chose à faire existe
+    getProgrammationLanguage($id);
+    // Récupérer les données du formulaire
+    $langage_de_programmation = $_POST;
+    $validation_courriel = filter_var($langage_de_programmation['courriel'], FILTER_VALIDATE_EMAIL);
+    if ($validation_courriel) {
+        $validation_url = filter_var($langage_de_programmation['url'], FILTER_VALIDATE_URL);
+        if ($validation_url) {
+            // Ajouter le langage de programmation
+            updateProgrammationLanguage($langage_de_programmation);
+            // Recharger la page pour mettre à jour la liste des langage de programmation associées
+            header('Location: index.php?action=cours&id=' . $langage_de_programmation['cours_id']);
+
+        } else {
+            // Recharger la page avec une erreur près de l'url
+            header('Location: index.php?action=modifier&id=' . $langage_de_programmation['id'] . '&erreur=url');
+        }
+    } else {
+        // Recharger la page avec une erreur près du courriel
+        header('Location: index.php?action=modifier&id=' . $langage_de_programmation['id'] . '&erreur=courriel');
+    }
+
+}
