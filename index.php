@@ -10,7 +10,7 @@ try {
             if (isset($_GET['id'])) {
                 $idCours = intval($_GET['id']);
                 if ($idCours != 0) {
-
+                    cours($idCours);
                 } else
                     throw new Exception("Identifiant de billet non valide");
             } else
