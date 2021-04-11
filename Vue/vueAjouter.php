@@ -1,7 +1,10 @@
 <?php $titre = "Ajouter un cours "; ?>
 <?php ob_start(); ?>
-    <form action="index.php?acttion=ajouter" method="post">
-        <h2>Ajouter un cours</h2>
+<header>
+    <h1 id="titreCoursProg">Ajouter un cours : </h1>
+</header>
+    <form action="index.php?action=ajouter" method="post">
+        <h2>Ajout d'un cours</h2>
         <p>
             <label for="nom">Nom</label> :
             <input type="text" name="nom" id="nom" value="" /><br />
@@ -20,3 +23,5 @@
             <input class="button" type="button" value="Annuler" name="annuler" onclick="history.back()"/>
         </p>
     </form>
+<?php $contenu = ob_get_clean(); ?>
+<?php require 'Vue/gabarit.php'; ?>

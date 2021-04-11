@@ -48,11 +48,11 @@ function setCours($cours){
         'prive)' .
         ' VALUES(?,?,?,?,?)'
     );
-    $req->execute([$cours['name'],
+    $req->execute([$cours['nom'],
             $cours['description'],
             $cours['utilisateur_id'],
-            $cours['difficulty'],
-            $cours['prive']]
+            $cours['difficulte'],
+            $prive]
     );
 }
 
@@ -81,7 +81,6 @@ function getProgrammationLanguage($id)
     }else {
         throw new Exception("Aucun langage de programmation ne correspond à l'identifiant '$id'");
     }
-    return $langages_de_programmation;
 }
 
 // Met à jour un langage de programmation
@@ -97,7 +96,7 @@ function updateProgrammationLanguage($langage_de_programmation)
 }
 
 // Ajouter un langage de programmation
-function setProgrammationLanguages($langage_de_programmation)
+function setProgrammationLanguage($langage_de_programmation)
 {
     $bdd = getBdd();
     $langages_de_programmation = $bdd->prepare('INSERT INTO langage_de_programmation (nom, description, cours_id) VALUES (?,?,?)');

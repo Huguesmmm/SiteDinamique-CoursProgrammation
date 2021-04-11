@@ -18,6 +18,12 @@ function cours($id, $erreur = '')
     require 'Vue/vueCours.php';
 }
 
+function langage_de_programmation($langage_de_programmation){
+    setProgrammationLanguage($langage_de_programmation);
+    // Recharger la page pour mettre à jour la liste des commentaires associés
+    header('Location: index.php?action=cours&id=' . $langage_de_programmation['cours_id']);
+}
+
 function courses()
 {
     $courses = getCourses();
@@ -25,7 +31,7 @@ function courses()
 }
 
 // Charge la vue pour l'ajout
-function nouveau()
+function nouveauCours()
 {
     require 'Vue/vueAjouter.php';
 }
@@ -37,6 +43,23 @@ function ajouter($cours)
     header('Location: index.php');
 }
 
+// Confirmer la suppression d'un langage de programmation
+function confirmer($id){
+    // Lire le langage de programmation à l'aide du modèle
+    $langage_de_programmation = getProgrammationLanguage($id);
+    require 'Vue/vueConfirmer.php';
+}
+
+// Supprimer un langage de programmation
+function supprimer($id){
+    // Lire le langage de programmation afin d'obtenir le id de l'article associé
+    $langage_de_programmation = getProgrammationLanguage($id);
+    // Supprimer le langage de programmation à l'aide du modèle
+    deleteProgrammationLanguage($id);
+    // Recharger la page pour mettre à jour la liste des commentaires associés
+    header('Location: index.php?action=cours&id=' . $langage_de_programmation['cours_id']);
+}
+
 // Affiche toutes les langages de programmation
 function langages_de_programmation()
 {
@@ -45,29 +68,29 @@ function langages_de_programmation()
 }
 
 // Ajoute un langage de programmation
-function langage_de_programmation($cours_id)
-{
-    // vérifier si le cours existe
-    $cours = getCours($cours_id);
-    // Récupérer les données du formulaire
-    $langage_de_programmation = $_POST;
-    $validation_courriel = filter_var($langage_de_programmation['courriel'], FILTER_VALIDATE_EMAIL);
-    if ($validation_courriel) {
-        $validation_url = filter_var($langage_de_programmation['url'], FILTER_VALIDATE_URL);
-        if ($validation_url) {
-            // Ajouter le langage de programmation à l'aide du modèle
-            setProgrammationLanguages($langage_de_programmation);
-            // Recharger la page pour mettre à jour la liste des langage de programmation
-            header('Location: index.php?action=cours?id=' . $cours_id);
-        } else {
-            // Recharger la page avec une erreur près de l'url
-            header('Location: index.php?action=cours&id=' . $langage_de_programmation['cours_id'] . '&erreur=url');
-        }
-    } else {
-        // Recharger la page avec une erreur près du courriel
-        header('Location: index.php?action=cours&id=' . $langage_de_programmation['id'] . '&erreur=courriel');
-    }
-}
+//function langage_de_programmation($cours_id)
+//{
+//    // vérifier si le cours existe
+//    $cours = getCours($cours_id);
+//    // Récupérer les données du formulaire
+//    $langage_de_programmation = $_POST;
+//    $validation_courriel = filter_var($langage_de_programmation['courriel'], FILTER_VALIDATE_EMAIL);
+//    if ($validation_courriel) {
+//        $validation_url = filter_var($langage_de_programmation['url'], FILTER_VALIDATE_URL);
+//        if ($validation_url) {
+//            // Ajouter le langage de programmation à l'aide du modèle
+//            setProgrammationLanguages($langage_de_programmation);
+//            // Recharger la page pour mettre à jour la liste des langage de programmation
+//            header('Location: index.php?action=cours?id=' . $cours_id);
+//        } else {
+//            // Recharger la page avec une erreur près de l'url
+//            header('Location: index.php?action=cours&id=' . $langage_de_programmation['cours_id'] . '&erreur=url');
+//        }
+//    } else {
+//        // Recharger la page avec une erreur près du courriel
+//        header('Location: index.php?action=cours&id=' . $langage_de_programmation['id'] . '&erreur=courriel');
+//    }
+//}
 
 // Mettre à jour une chose à faire
 function mettreAJour($id)

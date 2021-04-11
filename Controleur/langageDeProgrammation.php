@@ -13,7 +13,7 @@ try {
 
             $langages_de_programmation = $_POST;
 
-            setProgrammationLanguages($langages_de_programmation);
+            setProgrammationLanguage($langages_de_programmation);
 
             header("Location: Controleur/cours.php?id=".$id);
 
