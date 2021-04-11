@@ -1,6 +1,15 @@
 <?php
-// TODO: remplir les fonctions manquantes
+
 require 'Modele/Modele.php';
+
+function accueil(){
+    $courses = getCourses();
+    require 'Vue/vueAccueil.php';
+}
+
+function aPropos(){
+    require 'Vue/vueAPropos.php';
+}
 
 function cours($id, $erreur = '')
 {
@@ -85,4 +94,7 @@ function mettreAJour($id)
         header('Location: index.php?action=modifier&id=' . $langage_de_programmation['id'] . '&erreur=courriel');
     }
 
+}
+function erreur($msgErreur){
+    require 'Vue/vueErreur.php';
 }

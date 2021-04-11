@@ -36,6 +36,26 @@ function getCours($idCours)
     }
 }
 
+// Ajouter un cours
+function setCours($cours){
+    $bdd = getBdd();
+
+    $prive = (isset($cours['prive'])) ? 1 : 0;
+    $req = $bdd->prepare('INSERT INTO cours (nom, ' .
+        'description, ' .
+        'utilisateur_id, ' .
+        'difficulte,' .
+        'prive)' .
+        ' VALUES(?,?,?,?,?)'
+    );
+    $req->execute([$cours['name'],
+            $cours['description'],
+            $cours['utilisateur_id'],
+            $cours['difficulty'],
+            $cours['prive']]
+    );
+}
+
 // Renvoie la liste des langages de programmation associés à un cours
 function getProgrammationLanguages($idCours = null)
 {

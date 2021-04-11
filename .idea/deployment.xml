@@ -5,6 +5,13 @@
       <paths name="Ampps">
         <serverdata>
           <mappings>
+            <mapping deploy="cours_programmation\cours_programmation" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="Ampps2">
+        <serverdata>
+          <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
