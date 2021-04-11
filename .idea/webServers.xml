@@ -3,7 +3,10 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="3c936a15-ff99-4eca-a8e5-5ed5dbf31981" name="Ampps" url="http://localhost">
-        <fileTransfer mountedRoot="C:\Aamps39\www" accessType="MOUNT" port="0" />
+        <fileTransfer accessType="LOCAL" port="0" />
+      </webServer>
+      <webServer id="a94fc5ef-d87b-4d53-846a-5523c2387593" name="Ampps2" url="http://localhost/cours_programmation/cours_programmation">
+        <fileTransfer accessType="LOCAL" port="0" />
       </webServer>
     </option>
   </component>
