@@ -49,11 +49,31 @@ try {
                     throw new Exception(" Identifiant de langage de programmation incorrect");
             } else
                 throw new Exception("Aucun identifiant de langage de programmation");
+        } else if ($_GET['action'] == 'modifier') {
+            if (isset($_GET['id'])) {
+                $id = intval($_GET['id']);
+                if ($id != 0) {
+                    modifier($id);
+                } else
+                    throw new Exception(" Identifiant de langage de programmation incorrect");
+            } else
+                throw new Exception("Aucun identifiant de langage de programmation");
         } else if ($_GET['action'] == 'nouveauCours') {
             nouveauCours();
         } else if ($_GET['action'] == 'ajouter') {
             $cours = $_POST;
             ajouter($cours);
+        } else if ($_GET['action'] == 'mettre_a_jour') {
+            if (isset($_POST['id'])) {
+                $id = intval($_POST['id']);
+                if ($id != 0) {
+                    mettreAJour($id);
+                } else
+                    throw new Exception(" Identifiant de langage de programmation incorrect");
+            } else
+                throw new Exception("Aucun identifiant de langage de programmation");
+        } else if ($_GET['action'] == 'quelsLangages') {
+            quelsLangages($_GET['term']);
         } else
             throw new Exception("Action non valide");
     } else { // aucune action définie : affichage de l'accueil

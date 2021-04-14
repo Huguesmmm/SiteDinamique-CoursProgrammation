@@ -20,6 +20,9 @@
         <a href="index.php?action=confirmer&id=<?= $langage_de_programmation['id'] ?>">
             <span data-i18n="supprimer">[Supprimer]</span>
         </a>
+        <a href="index.php?action=modifier&id=<?= $langage_de_programmation['id'] ?>">
+            [Modifier]
+        </a>
     <h3><?= $langage_de_programmation['nom'] ?></h3>
     <?= $langage_de_programmation['description'] ?>
     </p>
@@ -28,9 +31,9 @@
 <form action="index.php?action=langage_de_programmation" method="post">
     <h2><span data-i18n="ajoutLangage">Ajouter un langage de programmation</span></h2>
     <p>
-        <label for="nom"><span data-i18n="nom">Nom</span></label> : <input type="text" name="nom" id="nom"/><br/>
+        <label for="nom"><span data-i18n="nom">Nom</span></label> : <input type="text" name="nom" id="auto"/><br/>
         <label for="description"><span data-i18n="description">Description</span></label> :
-        <textarea type="text" name="description" id="description">Écrivez votre description ici</textarea><br/>
+        <textarea type="text" name="description" id="descriptionAuto">Écrivez votre description ici</textarea><br/>
         <input type="hidden" name="cours_id" value="<?= $cours['id'] ?>"/> <br/>
         <input type="submit" value="Envoyer"/>
     </p>

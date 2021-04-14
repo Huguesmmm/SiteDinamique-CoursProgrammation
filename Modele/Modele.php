@@ -37,7 +37,8 @@ function getCours($idCours)
 }
 
 // Ajouter un cours
-function setCours($cours){
+function setCours($cours)
+{
     $bdd = getBdd();
 
     $prive = (isset($cours['prive'])) ? 1 : 0;
@@ -78,7 +79,7 @@ function getProgrammationLanguage($id)
     $langages_de_programmation->execute(array($id));
     if ($langages_de_programmation->rowCount() == 1) {
         return $langages_de_programmation->fetch();
-    }else {
+    } else {
         throw new Exception("Aucun langage de programmation ne correspond à l'identifiant '$id'");
     }
 }
@@ -89,9 +90,13 @@ function updateProgrammationLanguage($langage_de_programmation)
     $bdd = getBdd();
     $langages_de_programmation = $bdd->prepare('UPDATE langage_de_programmation SET '
         . 'nom = ?, '
-        . 'description = ?');
+        . 'description = ?,'
+        . 'courriel = ?,'
+        . 'url = ? WHERE id = ?');
     $langages_de_programmation->execute(array($langage_de_programmation['nom'],
-        $langage_de_programmation['description']));
+        $langage_de_programmation['description'], $langage_de_programmation['courriel'],
+        $langage_de_programmation['url'],
+        $langage_de_programmation['id']));
     return $langages_de_programmation;
 }
 
@@ -106,9 +111,36 @@ function setProgrammationLanguage($langage_de_programmation)
 }
 
 // Supprime un langage de programmation
-function deleteProgrammationLanguage($id){
+function deleteProgrammationLanguage($id)
+{
     $bdd = getBdd();
     $result = $bdd->prepare('DELETE FROM langage_de_programmation WHERE id = ?');
     $result->execute(array($id));
     return $result;
+}
+
+// Recherche les langages répondant à l'autocomplete
+function searchMatchLanguage($term)
+{
+    $bdd = getBdd();
+    $result = $bdd->prepare('SELECT nom FROM langage_de_programmation WHERE nom LIKE :term');
+    $result->execute(array('term' => '%' . $term . '%'));
+
+    while ($row = $result->fetch()) {
+        $return_arr[] = $row['nom'];
+    }
+    return json_encode($return_arr);
+}
+
+// Recherche dans la base de données si le langage existe
+function searchProgrammingLanguage($langageName)
+{
+    $bdd = getBdd();
+    $result = $bdd->prepare('SELECT nom FROM langage_de_programmation WHERE nom = ?');
+    $result->execute(array($langageName));
+    if ($result->rowCount() == 1) {
+        return $result->fetch();
+    } else {
+        throw new Exception("Aucun langage de programmation ne correspond à l'identifiant '$nom'");
+    }
 }
