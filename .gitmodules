@@ -1,0 +1,3 @@
+[submodule "Contenu/jquery.i18n"]
+	path = Contenu/jquery.i18n
+	url = https://github.com/wikimedia/jquery.i18n.git
