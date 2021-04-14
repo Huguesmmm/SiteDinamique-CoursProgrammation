@@ -1,0 +1,13 @@
+{
+  "titreCoursProg": "Programming Courses",
+  "Bienvenue": "Welcome to this presentation of programming courses.",
+  "headerMessage": "Site realized with PHP, HTML5 and CSS.",
+  "supprimer": "[Delete]",
+  "ajoutCours": "[Add a course]",
+  "titreAjoutCours": "Adding a course : ",
+  "soustitreAjoutCours": "Add a course",
+  "langagesVus": "Programming languages seen in",
+  "duree": "Duration : ",
+  "difficulte": "Difficulty : ",
+  "ajoutLangage": "Add a programming language"
+}

@@ -1,0 +1,13 @@
+{
+  "titreCoursProg": "Kurse für Programmieren",
+  "Bienvenue": "Ich heiße Sie auf dieser Programmierkursseite willkommen.",
+  "headerMessage": "Die Website wurde mit PHP, HTML5 und CSS erstellt.",
+  "supprimer": "[Löschen]",
+  "ajoutCours": "[Fügen Sie einen Kurs]",
+  "titreAjoutCours": "Einen Kurs hinzufügen : ",
+  "soustitreAjoutCours": "Kurs hinzufügen",
+  "langagesVus": "Programmiersprachen aus der Sicht",
+  "duree": "Zeitdauer : ",
+  "difficulte": "Schwierigkeit : ",
+  "ajoutLangage": "Schreibe eine Programmiersprache"
+}
