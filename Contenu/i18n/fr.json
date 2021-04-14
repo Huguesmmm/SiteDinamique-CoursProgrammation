@@ -1,0 +1,16 @@
+{
+  "titreCoursProg": "Cours de programmation",
+  "Bienvenue": "Je vous souhaite la bienvenue à cette présentation de cours de programmation.",
+  "headerMessage": "Site réalisé avec PHP, HTML5 et CSS.",
+  "supprimer": "[Supprimer]",
+  "ajoutCours": "[Ajouter un cours]",
+  "titreAjoutCours": "Ajouter d'un cours : ",
+  "soustitreAjoutCours": "Ajout d'un cours",
+  "langagesVus": "Langages de programmation vus dans",
+  "nom": "Nom",
+  "duree": "Durée",
+  "difficulte": "Difficulté",
+  "description": "Description",
+  "prive": "Privé",
+  "ajoutLangage": "Ajouter un langage de programmation"
+}
