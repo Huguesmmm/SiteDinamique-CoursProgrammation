@@ -7,7 +7,10 @@
   "titreAjoutCours": "Einen Kurs hinzufügen : ",
   "soustitreAjoutCours": "Kurs hinzufügen",
   "langagesVus": "Programmiersprachen aus der Sicht",
-  "duree": "Zeitdauer : ",
-  "difficulte": "Schwierigkeit : ",
+  "nom": "Name",
+  "duree": "Zeitdauer",
+  "difficulte": "Schwierigkeit",
+  "description": "Beschreibung",
+  "prive": "Private",
   "ajoutLangage": "Schreibe eine Programmiersprache"
 }

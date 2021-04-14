@@ -7,7 +7,10 @@
   "titreAjoutCours": "Ajouter d'un cours : ",
   "soustitreAjoutCours": "Ajout d'un cours",
   "langagesVus": "Langages de programmation vus dans",
-  "duree": "Durée : ",
-  "difficulte": "Difficulté : ",
+  "nom": "Nom",
+  "duree": "Durée",
+  "difficulte": "Difficulté",
+  "description": "Description",
+  "prive": "Privé",
   "ajoutLangage": "Ajouter un langage de programmation"
 }

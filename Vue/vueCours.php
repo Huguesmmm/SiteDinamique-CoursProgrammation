@@ -5,8 +5,8 @@
 <article>
     <header>
         <h1 class="titreCours"><?= $cours['name'] ?></h1>
-        Durée : <?= $cours['duration'] ?><br/>
-        Difficultée : <?= $cours['difficulty'] ?><br/>
+        <span data-i18n="duree">Durée</span> : <?= $cours['duration'] ?><br/>
+        <span data-i18n="difficulte">Difficultée</span> : <?= $cours['difficulty'] ?><br/>
     </header>
     <p><?= $cours['description'] ?></p>
 </article>
@@ -28,8 +28,8 @@
 <form action="index.php?action=langage_de_programmation" method="post">
     <h2><span data-i18n="ajoutLangage">Ajouter un langage de programmation</span></h2>
     <p>
-        <label for="nom">Nom</label> : <input type="text" name="nom" id="nom"/><br/>
-        <label for="description">Description</label> :
+        <label for="nom"><span data-i18n="nom">Nom</span></label> : <input type="text" name="nom" id="nom"/><br/>
+        <label for="description"><span data-i18n="description">Description</span></label> :
         <textarea type="text" name="description" id="description">Écrivez votre description ici</textarea><br/>
         <input type="hidden" name="cours_id" value="<?= $cours['id'] ?>"/> <br/>
         <input type="submit" value="Envoyer"/>
