@@ -1,7 +1,5 @@
-<!doctype html>
 <?php $titre = 'Cours de programmation v0.1.0.1'; ?>
 
-<?php ob_start(); ?>
 <?php foreach ($langages_de_programmation as $langage_de_programmation): ?>
     <article>
         <header>
@@ -11,10 +9,7 @@
         </header>
         <p><?= $langage_de_programmation['description'] ?></p>
     </article>
-    <hr />
+    <hr/>
 <?php endforeach; ?>
-<?php $contenu = ob_get_clean(); ?>
-
-<?php require 'gabarit.php'; ?>
 
 

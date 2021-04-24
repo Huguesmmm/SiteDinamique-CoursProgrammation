@@ -1,2 +1,2 @@
 <?php
-// TODO : completer la vue a propos
+//TODO: Completer la vue à propos
