@@ -12,20 +12,20 @@
 <header>
     <h1 id="titreLanguages"><span data-i18n="langagesVus">Langages de programmation vus dans</span> <?= $cours['name'] ?></h1>
 </header>
-<?php foreach ($langages_de_programmation as $langage_de_programmation) : ?>
+<?php foreach ($langagesDeProgrammation as $langageDeProgrammation) : ?>
     <p>
-        <a href="index.php?action=confirmer&id=<?= $langage_de_programmation['id'] ?>">
+        <a href="index.php?action=confirmer&id=<?= $langageDeProgrammation['id'] ?>">
             <span data-i18n="supprimer">[Supprimer]</span>
         </a>
-        <a href="index.php?action=modifier&id=<?= $langage_de_programmation['id'] ?>">
+        <a href="index.php?action=modifier&id=<?= $langageDeProgrammation['id'] ?>">
             [Modifier]
         </a>
-    <h3><?= $langage_de_programmation['nom'] ?></h3>
-    <?= $langage_de_programmation['description'] ?>
+    <h3><?= $langageDeProgrammation['nom'] ?></h3>
+    <?= $langageDeProgrammation['description'] ?>
     </p>
 <?php endforeach; ?>
 
-<form action="index.php?action=langage_de_programmation" method="post">
+<form action="index.php?action=langageDeProgrammation" method="post">
     <h2><span data-i18n="ajoutLangage">Ajouter un langage de programmation</span></h2>
     <p>
         <label for="nom"><span data-i18n="nom">Nom</span></label> : <input type="text" name="nom" id="auto" /><br />

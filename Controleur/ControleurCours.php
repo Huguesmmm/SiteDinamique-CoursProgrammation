@@ -7,12 +7,12 @@ require_once 'Vue/Vue.php';
 class ControleurCours
 {
     private $cours;
-    private $langage_de_programmations;
+    private $langagesDeProgrammation;
 
     public function __construct()
     {
         $this->cours = new Cours();
-        $this->langage_de_programmations = new LangageDeProgrammation();
+        $this->langagesDeProgrammation = new LangageDeProgrammation();
     }
 
     public function courses()
@@ -25,9 +25,9 @@ class ControleurCours
     public function cours($idCours, $erreur)
     {
         $cours = $this->cours->getCours($idCours);
-        $langage_deProgrammations = $this->langage_de_programmations->getProgrammationLanguages($idCours);
+        $langageDeProgrammations = $this->langagesDeProgrammation->getProgrammationLanguages($idCours);
         $vue = new Vue("Cours");
-        $vue->generer(['cours' => $cours, 'langage_deProgrammations' => $langage_deProgrammations, 'erreur' => $erreur]);
+        $vue->generer(['cours' => $cours, 'langagesDeProgrammation' => $langageDeProgrammations, 'erreur' => $erreur]);
     }
 
     public function nouveauCours()

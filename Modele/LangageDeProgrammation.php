@@ -9,9 +9,9 @@ class LangageDeProgrammation extends Modele
     {
         $sql = 'select * from langage_de_programmation'
             . ' where cours_id = ?';
-        $langages_de_programmation = $this->executerRequete($sql, [$idCours]);
+        $langagesDeProgrammation = $this->executerRequete($sql, [$idCours]);
 
-        return $langages_de_programmation;
+        return $langagesDeProgrammation;
     }
 
     // Renvoie un langage de programmation specifique
@@ -27,25 +27,25 @@ class LangageDeProgrammation extends Modele
     }
 
     // Met à jour un langage de programmation
-    function updateProgrammationLanguage($langage_de_programmation)
+    function updateProgrammationLanguage($langageDeProgrammation)
     {
         $sql = 'UPDATE langage_de_programmation SET '
             . 'nom = ?, '
             . 'description = ?'
             . 'WHERE id = ?';
-        $langages_de_programmation = $this->executerRequete($sql, [$langage_de_programmation['nom'],
-            $langage_de_programmation['description'],
-            $langage_de_programmation['id']]);
-        return $langages_de_programmation;
+        $langagesDeProgrammation = $this->executerRequete($sql, [$langageDeProgrammation['nom'],
+            $langageDeProgrammation['description'],
+            $langageDeProgrammation['id']]);
+        return $langagesDeProgrammation;
     }
 
     // Ajouter un langage de programmation
-    function setProgrammationLanguage($langage_de_programmation)
+    function setProgrammationLanguage($langageDeProgrammation)
     {
         $sql = 'INSERT INTO langage_de_programmation (nom, description, cours_id) VALUES (?,?,?)';
-        $langages_de_programmation = $this->executerRequete($sql, [$langage_de_programmation['nom'], $langage_de_programmation['description'],
-            $langage_de_programmation['cours_id']]);
-        return $langages_de_programmation;
+        $langagesDeProgrammation = $this->executerRequete($sql, [$langageDeProgrammation['nom'], $langageDeProgrammation['description'],
+            $langageDeProgrammation['cours_id']]);
+        return $langagesDeProgrammation;
     }
 
     // Supprime un langage de programmation

@@ -31,7 +31,7 @@ class Routeur
                         $this->ctrlCours->cours($id, $erreur);
                     } else
                         throw new Exception("Identifiant de cours non valide");
-                } else if ($_GET['action'] == 'langage_de_programmation') {
+                } else if ($_GET['action'] == 'langageDeProgrammation') {
                     // Tester l'existence des paramètres requis
                     $cours_id = intval($this->getParametre($_POST, 'cours_id'));
                     if ($cours_id != 0) {
