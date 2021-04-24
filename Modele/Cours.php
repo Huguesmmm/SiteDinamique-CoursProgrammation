@@ -11,7 +11,7 @@ class Cours extends Modele
             . ' utilisateur_id as user_id, '
             . ' difficulte as difficulty, prive as private from cours'
             . ' order by id desc';
-        $courses = $this->executeQuery($sql);
+        $courses = $this->executerRequete($sql);
         return $courses;
     }
 
@@ -23,7 +23,7 @@ class Cours extends Modele
             . ' utilisateur_id as user_id,'
             . ' difficulte as difficulty, prive as private from cours'
             . ' where id=?';
-        $cours = $this->executeQuery($sql, array($idCours));
+        $cours = $this->executerRequete($sql, array($idCours));
         if ($cours->rowCount() == 1) {
             return $cours->fetch();
         }  // Accès à la première ligne de résultat
@@ -35,22 +35,19 @@ class Cours extends Modele
     // Ajouter un cours
     function setCours($cours)
     {
-        $bdd = getBdd();
-
         $prive = (isset($cours['prive'])) ? 1 : 0;
-        $req = $bdd->prepare('INSERT INTO cours (nom, ' .
+        $sql = 'INSERT INTO cours (nom, ' .
             'description, ' .
             'utilisateur_id, ' .
             'difficulte,' .
             'prive)' .
-            ' VALUES(?,?,?,?,?)'
-        );
-        $req->execute([$cours['nom'],
-                $cours['description'],
-                $cours['utilisateur_id'],
-                $cours['difficulte'],
-                $prive]
-        );
+            ' VALUES(?,?,?,?,?)';
+
+        $this->executerRequete($sql, array([$cours['nom'],
+            $cours['description'],
+            $cours['utilisateur_id'],
+            $cours['difficulte'],
+            $prive]));
     }
 }
 
