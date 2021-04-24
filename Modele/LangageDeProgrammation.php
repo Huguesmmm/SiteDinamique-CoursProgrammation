@@ -1,5 +1,7 @@
 <?php
 
+require_once 'Modele/Modele.php';
+
 class LangageDeProgrammation extends Modele
 {
     // Renvoie la liste des langages de programmation associés à un cours
