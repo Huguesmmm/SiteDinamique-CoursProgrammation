@@ -36,6 +36,11 @@ class ControleurCours
         $vue->generer();
     }
 
+    public function ajouter($cours){
+        $this->cours->setCours($cours);
+        $this->courses();
+    }
+
     public function modifierCours($id)
     {
         $cours = $this->cours->getCours($id);
