@@ -1,8 +1,7 @@
 <?php $titre = 'Accueil - Cours de programmation version MVC'; ?>
 
-<?php ob_start(); ?>
 <p data-i18n="Bienvenue">Je vous souhaite la bienvenue à cette présentation de cours de programmation.</p>
-<?php foreach ($courses as $cours): ?>
+<?php foreach ($courses as $cours) : ?>
     <article>
         <header>
             <a href="<?= "index.php?action=cours&id=" . $cours['id'] ?>">
@@ -15,12 +14,9 @@
             <p><?= $cours['description']; ?></p>
         </header>
     </article>
-    <hr/>
+    <hr />
 <?php endforeach; ?>
 
 <a href="index.php?action=nouveauCours">
     <span data-i18n="ajoutCours">[Ajouter un cours]</span>
 </a>
-
-<?php $contenu = ob_get_clean(); ?>
-<?php require 'gabarit.php'; ?>
