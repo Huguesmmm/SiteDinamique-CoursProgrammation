@@ -33,9 +33,9 @@ class LangageDeProgrammation extends Modele
             . 'nom = ?, '
             . 'description = ?'
             . 'WHERE id = ?';
-        $langages_de_programmation = $this->executerRequete($sql, array($langage_de_programmation['nom'],
+        $langages_de_programmation = $this->executerRequete($sql, [$langage_de_programmation['nom'],
             $langage_de_programmation['description'],
-            $langage_de_programmation['id']));
+            $langage_de_programmation['id']]);
         return $langages_de_programmation;
     }
 
@@ -43,8 +43,8 @@ class LangageDeProgrammation extends Modele
     function setProgrammationLanguage($langage_de_programmation)
     {
         $sql = 'INSERT INTO langage_de_programmation (nom, description, cours_id) VALUES (?,?,?)';
-        $langages_de_programmation = $this->executerRequete($sql, array($langage_de_programmation['nom'], $langage_de_programmation['description'],
-            $langage_de_programmation['cours_id']));
+        $langages_de_programmation = $this->executerRequete($sql, [$langage_de_programmation['nom'], $langage_de_programmation['description'],
+            $langage_de_programmation['cours_id']]);
         return $langages_de_programmation;
     }
 

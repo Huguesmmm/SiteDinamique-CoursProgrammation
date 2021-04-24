@@ -17,7 +17,7 @@ class Cours extends Modele
     {
         $sql = 'select * from cours'
             . ' where id=?';
-        $cours = $this->executerRequete($sql, array($idCours));
+        $cours = $this->executerRequete($sql, [$idCours]);
         if ($cours->rowCount() == 1) {
             return $cours->fetch();
         }  // Accès à la première ligne de résultat
@@ -37,11 +37,11 @@ class Cours extends Modele
             'prive)' .
             ' VALUES(?,?,?,?,?)';
 
-        $this->executerRequete($sql, array([$cours['nom'],
+        $this->executerRequete($sql, [$cours['nom'],
             $cours['description'],
             $cours['utilisateur_id'],
             $cours['difficulte'],
-            $prive]));
+            $prive]);
     }
 
     function updateCours($cours)
@@ -59,7 +59,8 @@ class Cours extends Modele
             $cours['description'],
             $cours['utilisateur_id'],
             $cours['difficulte'],
-            $prive]));
+            $prive,
+            $cours['id']]));
         return $cours;
     }
 }
