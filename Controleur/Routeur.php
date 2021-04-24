@@ -8,11 +8,13 @@ class Routeur
 {
     private $ctrlCours;
     private $ctrlLangageDeProgrammation;
+    private $ctrlType;
 
     public function __construct()
     {
         $this->ctrlCours = new ControleurCours();
         $this->ctrlLangageDeProgrammation = new ControleurLangageDeProgrammation();
+        $this->ctrlType = new ControleurType();
     }
 
     public function routerRequete()
@@ -90,6 +92,9 @@ class Routeur
                         $this->ctrlCours->modifierCours($id);
                     } else
                         throw new Exception("Identifiant de cours non valide");
+                } else if ($_GET['action'] == 'quelsType') {
+                    $term = $this->getParametre($_GET, 'term');
+                    $this->ctrlType->quelsTypes($term);
                 } else
                     throw new Exception("Action non valide");
             } else { // aucune action définie : affichage de l'accueil
