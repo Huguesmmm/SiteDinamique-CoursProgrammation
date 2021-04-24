@@ -9,7 +9,7 @@ class LangageDeProgrammation extends Modele
     {
         $sql = 'select * from langage_de_programmation'
             . ' where cours_id = ?';
-        $langages_de_programmation = $this->executerRequete($sql);
+        $langages_de_programmation = $this->executerRequete($sql, [$idCours]);
 
         return $langages_de_programmation;
     }

@@ -21,13 +21,13 @@ if (isset($_GET['test'])) {
         <a href="test.php?test=modeleCours">Cours</a>
     </li>
     <li>
-        <a href="test.php?test=modeleLangageDeProgrammation">Commentaire</a>
+        <a href="test.php?test=modeleLangageDeProgrammation">Langage de programmation</a>
     </li>
 </ul>
 <h3>Tests de Vues</h3>
 <ul>
     <li>
-        <a href="test.php?test=vueCourses">Articles</a>
+        <a href="test.php?test=vueCourses">CourS</a>
     </li>
     <li>
         <a href="test.php?test=vueConfirmer">Confirmer</a>
