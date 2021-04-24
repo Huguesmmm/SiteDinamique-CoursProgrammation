@@ -93,10 +93,10 @@ class Routeur
                 } else
                     throw new Exception("Action non valide");
             } else { // aucune action définie : affichage de l'accueil
-                accueil();
+                $this->ctrlCours->courses();
             }
         } catch (Exception $e) {
-            erreur($e->getMessage());
+            $this->erreur($e->getMessage());
         }
     }
 

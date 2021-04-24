@@ -17,7 +17,7 @@ class ControleurCours
 
     public function courses()
     {
-        $courses = $this->cours->get_courses();
+        $courses = $this->cours->getCourses();
         $vue = new Vue("Courses");
         $vue->generer(['courses' => $courses]);
     }

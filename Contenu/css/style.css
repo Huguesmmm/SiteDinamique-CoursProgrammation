@@ -45,3 +45,11 @@ h1 {
 #titreLanguages {
     font-size : 100%;
 }
+
+.material-icons{
+    padding: 0;
+}
+
+.material-icons.ui-icon-clock{
+    font-size: 20px;
+}
