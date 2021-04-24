@@ -1,6 +1,4 @@
 <?php
-//require 'langagesDeProgrammation.php';
-// 'Controleur/courses.php';
 
 require 'Controleur/Controleur.php';
 

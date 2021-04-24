@@ -124,7 +124,7 @@ function quelsLangages($term){
 
 function modifier($id, $erreur=''){
     $langage_de_programmation = getProgrammationLanguage($id);
-    require 'Vue/vueModifier.php';
+    require 'Vue/vueModifierCours.php';
 }
 
 function erreur($msgErreur){

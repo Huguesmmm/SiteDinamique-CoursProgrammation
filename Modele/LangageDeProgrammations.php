@@ -40,7 +40,7 @@ class LangageDeProgrammations extends Modele
     }
 
     // Ajouter un langage de programmation
-    function setProgrammationLanguage($langage_de_programmation)
+    function ajouterProgrammationLanguage($langage_de_programmation)
     {
         $sql = 'INSERT INTO langage_de_programmation (nom, description, cours_id) VALUES (?,?,?)';
         $langages_de_programmation = $this->executerRequete($sql, array($langage_de_programmation['nom'], $langage_de_programmation['description'],

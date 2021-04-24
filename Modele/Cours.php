@@ -49,5 +49,24 @@ class Cours extends Modele
             $cours['difficulte'],
             $prive]));
     }
+
+    function updateCours($cours)
+    {
+        $prive = (isset($cours['prive'])) ? 1 : 0;
+        $sql = 'UPDATE cours SET '
+            . 'nom = ?, '
+            . 'description = ?,'
+            . 'duree = ?,'
+            . 'utilisateur_id = ?,'
+            . 'difficulte = ?,'
+            . 'prive = ?'
+            . 'WHERE id = ?';
+        $this->executerRequete($sql, array([$cours['nom'],
+            $cours['description'],
+            $cours['utilisateur_id'],
+            $cours['difficulte'],
+            $prive]));
+        return $cours;
+    }
 }
 

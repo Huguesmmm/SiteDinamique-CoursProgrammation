@@ -4,27 +4,30 @@ require_once 'Controleur/ControleurCours.php';
 require_once 'Controleur/ControleurLangageDeProgrammation.php';
 require_once 'Vue/Vue.php';
 
-class Routeur {
+class Routeur
+{
     private $ctrlCours;
     private $ctrlLangageDeProgrammation;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->ctrlCours = new ControleurCours();
         $this->ctrlLangageDeProgrammation = new ControleurLangageDeProgrammation();
     }
 
-    public function routerRequete(){
+    public function routerRequete()
+    {
         try {
             if (isset($_GET['action'])) {
-                if ($_GET['action'] == 'cours') {
-                    if (isset($_GET['id'])) {
-                        $idCours = intval($_GET['id']);
-                        if ($idCours != 0) {
-                            cours($idCours);
-                        } else
-                            throw new Exception("Identifiant de cours non valide");
+                if ($_GET['action'] == 'apropos') {
+                    $this->apropos();
+                } else if ($_GET['action'] == 'cours') {
+                    $idCours = intval($this->getParametre($_GET, 'id'));
+                    if ($idCours != 0) {
+                        $erreur = isset($_GET['erreur']) ? $_GET['erreur'] : '';
+                        $this->ctrlCours->cours($id, $erreur);
                     } else
-                        throw new Exception("Identifiant de cours non défini");
+                        throw new Exception("Identifiant de cours non valide");
                 } else if ($_GET['action'] == 'langage_de_programmation') {
                     if (isset($_POST['cours_id'])) {
                         $id = intval($_POST['cours_id']);
@@ -71,6 +74,26 @@ class Routeur {
             }
         } catch (Exception $e) {
             erreur($e->getMessage());
+        }
+    }
+
+    private function apropos()
+    {
+        $vue = new Vue("Apropos");
+    }
+
+    private function erreur($msgErreur)
+    {
+        $vue = new Vue("Erreur");
+        $vue->generer(array('msgErreur' => $msgErreur));
+    }
+
+    private function getParametre($tableau, $nom)
+    {
+        if (isset($tableau[$nom])) {
+            return $tableau[$nom];
+        } else {
+            throw new Exception("Paramètre '$nom' absent");
         }
     }
 }
