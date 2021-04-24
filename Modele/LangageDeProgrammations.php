@@ -3,16 +3,12 @@
 class LangageDeProgrammations extends Modele
 {
     // Renvoie la liste des langages de programmation associés à un cours
-    function getProgrammationLanguages($idCours = null)
+    function getProgrammationLanguages($idCours)
     {
-        $bdd = getBdd();
-        if ($idCours == null) {
-            $langages_de_programmation = $bdd->query('select * from langage_de_programmation');
-        } else {
-            $langages_de_programmation = $bdd->prepare('select * from langage_de_programmation'
-                . ' where cours_id = ?');
-            $langages_de_programmation->execute(array($idCours));
-        }
+        $sql = 'select * from langage_de_programmation'
+            . ' where cours_id = ?';
+        $langages_de_programmation = $this->executerRequete($sql);
+
         return $langages_de_programmation;
     }
 
