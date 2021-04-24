@@ -22,7 +22,8 @@ abstract class Modele
     {
         if ($this->bdd == null) {
             $bdd = new PDO('mysql:host=localhost;dbname=cours_programmation_v0_1_0_1;charset=utf8',
-                'root', 'mysql');
+                'root', 'mysql',
+            array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         }
         return $bdd;
     }
