@@ -6,25 +6,24 @@ class Cours extends Modele
 {
     function getCourses()
     {
-        $bdd = getBdd();
-        $courses = $bdd->query('select id as id, nom as name,'
+        $sql = 'select id as id, nom as name,'
             . ' description as description, duree as duration,'
             . ' utilisateur_id as user_id, '
             . ' difficulte as difficulty, prive as private from cours'
-            . ' order by id desc');
+            . ' order by id desc';
+        $courses = $this->executeQuery($sql);
         return $courses;
     }
 
     // Renvoie les informations sur un billet
     function getCours($idCours)
     {
-        $bdd = getBdd();
-        $cours = $bdd->prepare('select id as id, nom as name,'
+        $sql = 'select id as id, nom as name,'
             . ' description as description, duree as duration,'
             . ' utilisateur_id as user_id,'
             . ' difficulte as difficulty, prive as private from cours'
-            . ' where id=?');
-        $cours->execute(array($idCours));
+            . ' where id=?';
+        $cours = $this->executeQuery($sql, array($idCours));
         if ($cours->rowCount() == 1) {
             return $cours->fetch();
         }  // Accès à la première ligne de résultat
