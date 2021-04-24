@@ -1053,56 +1053,47 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="305" parent="289" name="courriel">
-      <Position>5</Position>
-      <DataType>varchar(255)|0s</DataType>
-    </column>
-    <column id="306" parent="289" name="url">
-      <Position>6</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <index id="307" parent="289" name="fk_languages_cours">
+    <index id="305" parent="289" name="fk_languages_cours">
       <ColNames>cours_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="308" parent="289" name="PRIMARY">
+    <key id="306" parent="289" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="309" parent="289" name="fk_languages_cours">
+    <foreign-key id="307" parent="289" name="fk_languages_cours">
       <ColNames>cours_id</ColNames>
       <RefTableName>cours</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="310" parent="290" name="id">
+    <column id="308" parent="290" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="311" parent="290" name="nom">
+    <column id="309" parent="290" name="nom">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="312" parent="290" name="identifiant">
+    <column id="310" parent="290" name="identifiant">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="313" parent="290" name="mot_de_passe">
+    <column id="311" parent="290" name="mot_de_passe">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="314" parent="290" name="courriel">
+    <column id="312" parent="290" name="courriel">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="315" parent="290" name="PRIMARY">
+    <key id="313" parent="290" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

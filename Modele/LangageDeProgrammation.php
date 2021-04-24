@@ -31,18 +31,16 @@ class LangageDeProgrammation extends Modele
     {
         $sql = 'UPDATE langage_de_programmation SET '
             . 'nom = ?, '
-            . 'description = ?,'
-            . 'courriel = ?,'
-            . 'url = ? WHERE id = ?';
+            . 'description = ?'
+            . 'WHERE id = ?';
         $langages_de_programmation = $this->executerRequete($sql, array($langage_de_programmation['nom'],
-            $langage_de_programmation['description'], $langage_de_programmation['courriel'],
-            $langage_de_programmation['url'],
+            $langage_de_programmation['description'],
             $langage_de_programmation['id']));
         return $langages_de_programmation;
     }
 
     // Ajouter un langage de programmation
-    function ajouterProgrammationLanguage($langage_de_programmation)
+    function setProgrammationLanguage($langage_de_programmation)
     {
         $sql = 'INSERT INTO langage_de_programmation (nom, description, cours_id) VALUES (?,?,?)';
         $langages_de_programmation = $this->executerRequete($sql, array($langage_de_programmation['nom'], $langage_de_programmation['description'],

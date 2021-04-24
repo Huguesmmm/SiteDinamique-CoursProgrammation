@@ -6,10 +6,7 @@ class Cours extends Modele
 {
     function getCourses()
     {
-        $sql = 'select id as id, nom as name,'
-            . ' description as description, duree as duration,'
-            . ' utilisateur_id as user_id, '
-            . ' difficulte as difficulty, prive as private from cours'
+        $sql = 'select * from cours'
             . ' order by id desc';
         $courses = $this->executerRequete($sql);
         return $courses;
@@ -18,10 +15,7 @@ class Cours extends Modele
     // Renvoie les informations sur un billet
     function getCours($idCours)
     {
-        $sql = 'select id as id, nom as name,'
-            . ' description as description, duree as duration,'
-            . ' utilisateur_id as user_id,'
-            . ' difficulte as difficulty, prive as private from cours'
+        $sql = 'select * from cours'
             . ' where id=?';
         $cours = $this->executerRequete($sql, array($idCours));
         if ($cours->rowCount() == 1) {

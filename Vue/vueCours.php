@@ -2,9 +2,9 @@
 
 <article>
     <header>
-        <h1 class="titreCours"><?= $cours['name'] ?></h1>
-        <span data-i18n="duree">Durée</span> : <?= $cours['duration'] ?><br />
-        <span data-i18n="difficulte">Difficultée</span> : <?= $cours['difficulty'] ?><br />
+        <h1 class="titreCours"><?= $cours['nom'] ?></h1>
+        <span data-i18n="duree">Durée</span> : <?= $cours['duree'] ?><br />
+        <span data-i18n="difficulte">Difficultée</span> : <?= $cours['difficulte'] ?><br />
     </header>
     <p><?= $cours['description'] ?></p>
 </article>
