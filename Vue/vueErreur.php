@@ -1,3 +1,3 @@
-<?php $titre = 'Cours de programmation'; ?>
+<?php $this->titre = 'Cours de programmation'; ?>
 
 <p>Une erreur est survenue : <?= $msgErreur ?></p>

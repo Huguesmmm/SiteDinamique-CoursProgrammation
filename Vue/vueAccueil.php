@@ -1,4 +1,4 @@
-<?php $titre = 'Accueil - Cours de programmation version MVC'; ?>
+<?php $this->titre = 'Accueil - Cours de programmation version MVC'; ?>
 
 <p data-i18n="Bienvenue">Je vous souhaite la bienvenue à cette présentation de cours de programmation.</p>
 <?php foreach ($courses as $cours) : ?>

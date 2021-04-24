@@ -1,4 +1,4 @@
-<?php $titre = 'À propos de ce site'; ?>
+<?php $this->titre = 'À propos de ce site'; ?>
 <!doctype html>
 <html>
     <head>

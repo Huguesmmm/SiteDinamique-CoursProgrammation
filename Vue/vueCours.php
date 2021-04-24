@@ -1,4 +1,4 @@
-<?php $titre = $cours['nom']; ?>
+<?php $this->titre = $cours['nom']; ?>
 
 <article>
     <header>

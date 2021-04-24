@@ -1,4 +1,4 @@
-<?php $titre = 'Modifier ' . $langage_de_programmation['nom']; ?>
+<?php $this->titre = 'Modifier ' . $langage_de_programmation['nom']; ?>
 
 <header>
     <h1 id="titreCoursProg"><span data-i18n="titreAjoutCours">Modifier un cours : </span></h1>

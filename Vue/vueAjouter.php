@@ -1,4 +1,4 @@
-<?php $titre = "Ajouter un cours "; ?>
+<?php $this->titre = "Ajouter un cours "; ?>
 <header>
     <h1 id="titreCoursProg"><span data-i18n="titreAjoutCours">Ajouter un cours : </span></h1>
 </header>

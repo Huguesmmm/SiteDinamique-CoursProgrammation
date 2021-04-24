@@ -1,4 +1,4 @@
-<?php $titre = "Supprimer - " . $langage_de_programmation['nom']; ?>
+<?php $this->titre = "Supprimer - " . $langage_de_programmation['nom']; ?>
 
 <article>
     <header>

@@ -1,4 +1,4 @@
-<?php $titre = 'Cours de programmation v0.1.0.1'; ?>
+<?php $this->titre = 'Cours de programmation v0.1.0.1'; ?>
 
 <?php foreach ($langages_de_programmation as $langage_de_programmation) : ?>
     <article>
