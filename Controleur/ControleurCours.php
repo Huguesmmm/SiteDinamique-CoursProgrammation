@@ -1,7 +1,7 @@
 <?php
 
 require_once 'Modele/Cours.php';
-require_once 'Modele/LangageDeProgrammations.php';
+require_once 'Modele/LangageDeProgrammation.php';
 require_once 'Vue/Vue.php';
 
 class ControleurCours
@@ -12,7 +12,7 @@ class ControleurCours
     public function __construct()
     {
         $this->cours = new Cours();
-        $this->langage_de_programmations = new LangageDeProgrammations();
+        $this->langage_de_programmations = new LangageDeProgrammation();
     }
 
     public function courses()

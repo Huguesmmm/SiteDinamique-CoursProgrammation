@@ -8,7 +8,7 @@ class ControleurLangageDeProgrammation {
     private $langage_de_programmations;
 
     public function __construct() {
-        $this->langage_de_programmations = new LangageDeProgrammations();
+        $this->langage_de_programmations = new LangageDeProgrammation();
     }
 
     public function langageDeProgrammation($langage_de_programmation){

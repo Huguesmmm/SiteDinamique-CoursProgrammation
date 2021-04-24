@@ -1,6 +1,6 @@
 <?php
 
-class LangageDeProgrammations extends Modele
+class LangageDeProgrammation extends Modele
 {
     // Renvoie la liste des langages de programmation associés à un cours
     function getProgrammationLanguages($idCours)
